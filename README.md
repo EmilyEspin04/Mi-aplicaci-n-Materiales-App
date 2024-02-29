@@ -1,17 +1,20 @@
-# Mi-aplicaci-n-Materiales-App
+# Mi-aplicación-Materiales-App
 Aplicación destinada a la rama de Ingeniería en Materiales.
 
+# Importar Librerías
+  from kivy.app import App
+  from kivy.uix.boxlayout import BoxLayout
+  from kivy.uix.label import Label
+  from kivy.uix.button import Button
+  from kivy.uix.popup import Popup
+  from kivy.uix.screenmanager import ScreenManager, Screen
+  from kivy.uix.scrollview import ScrollView
+  from kivy.uix.textinput import TextInput
 
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.label import Label
-from kivy.uix.button import Button
-from kivy.uix.popup import Popup
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.scrollview import ScrollView
-from kivy.uix.textinput import TextInput
+# Hacer uso del comanfo IF para la creación de botones.
 
-class WelcomeScreen(BoxLayout):
+
+    class WelcomeScreen(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.orientation = 'vertical'
@@ -30,6 +33,9 @@ class WelcomeScreen(BoxLayout):
 
     def mostrar_base_datos(self, instance):
         base_datos_info = """
+
+
+# Base de Datos 
 1. Acero
    - Tipo: Metal
    - Dureza: 8.5 
@@ -122,8 +128,7 @@ class WelcomeScreen(BoxLayout):
 """
 
 
-
-      # Crear ScrollView y ajustar el tamaño del contenido
+# Crear ScrollView y ajustar el tamaño del contenido
         scrollview = ScrollView(size_hint=(None, None), size=(600, 400))
         base_datos_content = Label(text=base_datos_info, size_hint_y=None, markup=True)
         base_datos_content.bind(texture_size=base_datos_content.setter('size'))
@@ -133,6 +138,8 @@ class WelcomeScreen(BoxLayout):
                       content=scrollview,
                       size_hint=(None, None), size=(600, 400))
         popup.open()
+
+# Comando Def, las fórmulas de nuestra calculadora
 
     def mostrar_calculadora(self, instance):
         popup_content = BoxLayout(orientation='vertical')
@@ -169,7 +176,7 @@ class WelcomeScreen(BoxLayout):
 
     def mostrar_densidad_input(self, instance):
         self.mostrar_input_popup('Densidad', 'Masa (m) [kg]:', 'Volumen (V) [m³]:')
-
+# Uso de botones y definición de medidas y orientación
     def mostrar_input_popup(self, title, *labels):
         popup_content = BoxLayout(orientation='vertical')
 
@@ -194,7 +201,7 @@ class WelcomeScreen(BoxLayout):
                       content=popup_content,
                       size_hint=(None, None), size=(500, 300))
         popup.open()
-
+# Calcular los resultados con comando IF, ELIF, ELSE.
     def calcular_resultado(self, title, *values):
         if title == 'Módulo de Young':
             resultado = f'Módulo de Young calculado: {float(values[0]) / float(values[1])} Pa'
@@ -212,7 +219,8 @@ class WelcomeScreen(BoxLayout):
                                 size_hint=(None, None), size=(400, 200))
         resultado_popup.open()
 
-class MyApp(App):
+# Fin del Código para inciar la aplicación
+     class MyApp(App):
     def build(self):
         sm = ScreenManager()
 
@@ -222,5 +230,5 @@ class MyApp(App):
 
         return sm
 
-if __name__ == '__main__':
-    MyApp().run()
+       if __name__ == '__main__':
+        MyApp().run()
