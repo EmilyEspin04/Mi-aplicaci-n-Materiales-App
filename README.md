@@ -1,5 +1,7 @@
 # Mi-aplicaci-n-Materiales-App
 Aplicación destinada a la rama de Ingeniería en Materiales.
+
+
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
@@ -118,7 +120,10 @@ class WelcomeScreen(BoxLayout):
     - Temperatura máxima: 1668°C
     - Densidad: 4500 kg/m³
 """
-        # Crear ScrollView y ajustar el tamaño del contenido
+
+
+
+      # Crear ScrollView y ajustar el tamaño del contenido
         scrollview = ScrollView(size_hint=(None, None), size=(600, 400))
         base_datos_content = Label(text=base_datos_info, size_hint_y=None, markup=True)
         base_datos_content.bind(texture_size=base_datos_content.setter('size'))
